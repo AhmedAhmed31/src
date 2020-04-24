@@ -202,4 +202,3 @@ CKEDITOR_CONFIGS = {
 
 # heroku set-up
 django_heroku.settings(locals())
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
