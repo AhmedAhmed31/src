@@ -39,9 +39,9 @@ def signup(request):
 
 
 def login(request):
-
     if request.method == 'POST':
-        form =AuthenticationForm()
+        form = AuthenticationForm()
+        return redirect('/')
     else:
 
         form = AuthenticationForm()
@@ -49,7 +49,6 @@ def login(request):
     context = {
         'form': form,
     }
-
     return render(request, 'login.html', context)
 
 
