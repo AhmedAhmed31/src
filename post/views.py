@@ -40,7 +40,7 @@ def signup(request):
 
 def login(request):
     if request.method == 'POST':
-        form = AuthenticationForm()
+        form = AuthenticationForm(request.POST)
         return redirect('/')
     else:
 
