@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from .forms import PostForm
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login
 
 
 # Create your views here.
@@ -38,10 +39,12 @@ def signup(request):
     return render(request, 'signup.html', context)
 
 
-def login(request):
+def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
+            user=form.get_user()
+            login(request,user)
             return redirect('/')
     else:
 
