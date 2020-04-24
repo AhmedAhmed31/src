@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^$', views.all_post, name='all_post'),
     url(r'^(?P<id>\d+)$', views.post, name='post'),
 
-    
+
 
     url(r'^login$', views.login, name='login'),
     url(r'^signup$', views.signup, name='signup'),
