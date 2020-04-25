@@ -1,8 +1,8 @@
 {% extends 'base.html' %} }
 {% block body %}
     <div class="jumbotron banner mt-3">
-        <p class="card-text">Created by {{ post.user }}</p>
-        <p class="card-text">Created {{ post.created }}</p>
+        <h2 class="text-uppercase font-weight-bold">Created by {{ post.user }}</h2>
+        <h3 class="text-uppercase font-weight-bold">Created at {{ post.created }}</h3>
 
 
         {% if request.user.is_superuser %}

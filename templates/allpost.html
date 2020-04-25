@@ -1,20 +1,26 @@
 {% extends 'base.html' %} }
 {% block body %}
-            <div class="jumbotron banner mt-3">
-                {% if request.user.is_superuser %}
-                <a class="btn btn-primary btn-lg" href="{% url 'ahmedlv:create_post' %}" role="button">Add a new post</a>
-            {% endif %}
+    <div class="jumbotron banner mt-3">
+        {% if request.user.is_anonymous %}
+            <h1 class="text-uppercase font-weight-bold">Welcome to my website</h1>
+        {% else %}
+            <h1 class="text-uppercase font-weight-bold" >Welcome {{request.user}}</h1>
 
-            </div>
+        {% endif %}
+        {% if request.user.is_superuser %}
+            <a class="btn btn-primary btn-lg" href="{% url 'ahmedlv:create_post' %}" role="button">Add a new post</a>
+        {% endif %}
+
+    </div>
     {% for post in all %}
         <div class="col-md-4 ">
             <div class="card mt-3" style="width: 18rem;">
                 {% if post.img %}
-                <img class="card-img-top" src="{{post.img.url}}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ post.img.url }}" alt="Card image cap">
                 {% endif %}
                 <div class="card-body">
-                    <h5 class="card-title">{{ post.title}}</h5>
-                    <p class="card-text">{{post.content|safe|truncatechars_html:10}}</p>
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text">{{ post.content|safe|truncatechars_html:10 }}</p>
                     <a href="{% url 'ahmedlv:post' post.id %}" class="btn btn-primary">Read More</a>
                 </div>
             </div>
