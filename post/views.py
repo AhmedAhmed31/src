@@ -94,3 +94,7 @@ def create_post(request):
 
     }
     return render(request, 'create.html', context)
+
+
+def about_me(request):
+    pass

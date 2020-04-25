@@ -1,17 +1,24 @@
 {% extends 'base.html' %} }
 {% block body %}
     <div class="jumbotron banner mt-3">
-        <a class="btn btn-primary btn-lg" href="{% url 'ahmedlv:edit_post' post.id %}" role="button">Edit This post</a>
+        <p class="card-text">Created by {{ post.user }}</p>
+        <p class="card-text">Created {{ post.created }}</p>
+
+
+        {% if request.user.is_superuser %}
+            <a class="btn btn-primary btn-lg" href="{% url 'ahmedlv:edit_post' post.id %}" role="button">Edit This
+                post</a>
+        {% endif %}
     </div>
 
-
+    <div class="single_post">
         <div class="card">
-         {% if post.img %}
-            <img class="card-img-top" src="{{post.img.url}}" alt="Card image cap">
+            {% if post.img %}
+                <img class="card-img-top" src="{{ post.img.url }}" alt="Card image cap">
             {% endif %}
             <div class="card-body">
-                <h5 class="card-title">{{ post.title|safe}}</h5>
-                <p class="card-text">{{ post.content|safe}}</p>
+                <h5 class="card-title">{{ post.title|safe }}</h5>
+                <p class="card-text">{{ post.content|safe }}</p>
 
             </div>
         </div>

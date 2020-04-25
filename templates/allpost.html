@@ -1,7 +1,10 @@
 {% extends 'base.html' %} }
 {% block body %}
             <div class="jumbotron banner mt-3">
+                {% if request.user.is_superuser %}
                 <a class="btn btn-primary btn-lg" href="{% url 'ahmedlv:create_post' %}" role="button">Add a new post</a>
+            {% endif %}
+
             </div>
     {% for post in all %}
         <div class="col-md-4 ">
