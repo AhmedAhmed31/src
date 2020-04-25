@@ -1,12 +1,13 @@
 {% extends 'base.html' %} }
 {% block body %}
     <div class="jumbotron banner mt-3">
-        {% if request.user.is_anonymous %}
-            <h1 class="text-uppercase font-weight-bold">Welcome to my website</h1>
+        {% if request.user.is_authenticated %}
+            <h1 class="text-uppercase font-weight-bold">Welcome {{ request.user }}</h1>
+
         {% else %}
-            <h1 class="text-uppercase font-weight-bold" >Welcome {{request.user}}</h1>
+            <h1 class="text-uppercase font-weight-bold">Welcome to my website</h1>
         {% endif %}
-        {% if request.user.is_superuser %}
+        {% if request.user.is_authenticated %}
             <br>
             <a class="btn btn-primary btn-lg" href="{% url 'ahmedlv:create_post' %}" role="button">Add a new post</a>
         {% endif %}

@@ -5,7 +5,7 @@
         <h3 class="text-uppercase font-weight-bold">Created at {{ post.created }}</h3>
 
 
-        {% if request.user.is_superuser %}
+        {% if request.user.is_authenticated %}
             <a class="btn btn-primary btn-lg" href="{% url 'ahmedlv:edit_post' post.id %}" role="button">Edit This
                 post</a>
         {% endif %}
