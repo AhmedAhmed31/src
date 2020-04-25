@@ -22,29 +22,37 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-  <div class="collapse navbar-collapse " id="navbarSupportedContent">
-    <div class="navbar-nav ">
-      <div class="nav-item active">
-        <a class="nav-link" href="{% url 'ahmedlv:signup' %}">signup <span class="sr-only">(current)</span></a>
-      </div>
-         <div class="navbar-nav ">
-      <div class="nav-item active">
-        <a class="nav-link" href="{% url 'ahmedlv:login' %}">login <span class="sr-only">(current)</span></a>
-      </div>
-              <div class="navbar-nav ">
-      <div class="nav-item active">
-        <a class="nav-link" href="#">About me <span class="sr-only">(current)</span></a>
-      </div>
-    </div>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <div class="navbar-nav ">
+            <div class="nav-item active">
+                <a class="nav-link" href="{% url 'ahmedlv:signup' %}">signup <span class="sr-only">(current)</span></a>
+            </div>
+            <div class="navbar-nav ">
+                <div class="nav-item active">
+                    <a class="nav-link" href="{% url 'ahmedlv:login' %}">login <span
+                            class="sr-only">(current)</span></a>
+                </div>
+                <div class="navbar-nav ">
+                    {% if request.user.is_authenticated %}
+                        <div class="nav-item active">
+                            <a class="nav-link" href="{% url 'ahmedlv:logout' %}">logout <span
+                                    class="sr-only">(current)</span></a>
+                        </div>
+                    {% endif %}
+                    <div class="navbar-nav ">
+                        <div class="nav-item active">
+                            <a class="nav-link" href="#">About me <span class="sr-only">(current)</span></a>
+                        </div>
+                    </div>
 
-
-  </div>
+                </div>
+            </div>
 </nav>
 <div class="container">
     <div class="row mt-3">
         {% block body %}
 
-         {% endblock body %}
+        {% endblock body %}
     </div>
 </div>
 

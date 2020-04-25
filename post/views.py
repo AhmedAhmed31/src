@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from .forms import PostForm
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import login
+from django.contrib.auth import login,logout
 
 
 # Create your views here.
@@ -98,3 +98,8 @@ def create_post(request):
 
 def about_me(request):
     pass
+
+
+def logout_view(request):
+        logout(request)
+        return redirect('/')
