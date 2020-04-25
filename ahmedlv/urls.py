@@ -23,6 +23,6 @@ urlpatterns = [
     path('', include('CV.urls',namespace='CV')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 
-] 
+]
 
 
