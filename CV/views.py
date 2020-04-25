@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import CV
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login,logout
 
-# Create your views here.
+
+def about_me(request):
+
+    return render(request, 'index.html')
