@@ -8,3 +8,8 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'content', 'img']
+
+
+    def get_object(self):
+        return self.request.user.Post
+
