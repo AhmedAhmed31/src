@@ -6,4 +6,4 @@ from django.contrib.auth import login,logout
 
 def about_me(request):
 
-    return render(request, 'index.html')
+    return render(request, 'CV.html')
