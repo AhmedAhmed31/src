@@ -119,19 +119,20 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
 
 # DEFAULT_FILE_STORAGE = 'ahmedlv.custom_azure.AzureMediaStorage'
-# STATICFILES_STORAGE = 'ahmedlv.custom_azure.AzureStaticStorage'
+# STATICFILES_STORAGE = 'ahmedlv.custom_azure.AzureStaticStorage'm
 
-STATIC_LOCATION = "static"
-MEDIA_LOCATION = "media"
+# STATIC_LOCATION = "static"
+# MEDIA_LOCATION = "media"
 
 # AZURE_ACCOUNT_NAME = "ahmedlvstore"
 # AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
